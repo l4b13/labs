@@ -1,0 +1,4 @@
+﻿  yaipp.cpp
+c:\users\l4b13\source\repos\yaipp\yaipp\yaipp.cpp(30): warning C4551: в вызове функции отсутствует список аргументов
+  yaipp.vcxproj -> C:\Users\l4b13\source\repos\yaipp\x64\Debug\yaipp.exe
+  yaipp.vcxproj -> C:\Users\l4b13\source\repos\yaipp\x64\Debug\yaipp.pdb (Partial PDB)

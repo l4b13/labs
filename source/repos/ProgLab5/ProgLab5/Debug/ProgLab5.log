@@ -1,0 +1,5 @@
+﻿main.obj : error LNK2019: ссылка на неразрешенный внешний символ _mysql_error@4 в функции _main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ _mysql_init@4 в функции _main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ _mysql_real_connect@32 в функции _main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ _mysql_options@12 в функции _main
+C:\Users\Jake\source\repos\ProgLab5\Debug\ProgLab5.exe : fatal error LNK1120: неразрешенных внешних элементов: 4

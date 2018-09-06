@@ -1,0 +1,5 @@
+﻿  lab2.cpp
+c:\users\l4b13\source\repos\lab2\lab2\lab2.cpp(38): warning C4309: инициализация: усечение константного значения
+c:\users\l4b13\source\repos\lab2\lab2\lab2.cpp(30): warning C4715: funkciya: значение возвращается не при всех путях выполнения
+  lab2.vcxproj -> C:\Users\l4b13\source\repos\lab2\x64\Debug\lab2.exe
+  lab2.vcxproj -> C:\Users\l4b13\source\repos\lab2\x64\Debug\lab2.pdb (Partial PDB)

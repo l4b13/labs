@@ -1,0 +1,10 @@
+C:\Users\l4b13\source\repos\turing\turing\bin\Debug\turing.exe.config
+C:\Users\l4b13\source\repos\turing\turing\bin\Debug\turing.exe
+C:\Users\l4b13\source\repos\turing\turing\bin\Debug\turing.pdb
+C:\Users\l4b13\source\repos\turing\turing\obj\Debug\turing.csprojResolveAssemblyReference.cache
+C:\Users\l4b13\source\repos\turing\turing\obj\Debug\turing.Form1.resources
+C:\Users\l4b13\source\repos\turing\turing\obj\Debug\turing.Properties.Resources.resources
+C:\Users\l4b13\source\repos\turing\turing\obj\Debug\turing.csproj.GenerateResource.Cache
+C:\Users\l4b13\source\repos\turing\turing\obj\Debug\turing.csproj.CoreCompileInputs.cache
+C:\Users\l4b13\source\repos\turing\turing\obj\Debug\turing.exe
+C:\Users\l4b13\source\repos\turing\turing\obj\Debug\turing.pdb
