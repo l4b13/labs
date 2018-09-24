@@ -1,7 +1,0 @@
-c:\users\l4b13\source\repos\lab1cs\lab1cs\bin\Debug\lab1cs.exe.config
-c:\users\l4b13\source\repos\lab1cs\lab1cs\bin\Debug\lab1cs.exe
-c:\users\l4b13\source\repos\lab1cs\lab1cs\bin\Debug\lab1cs.pdb
-c:\users\l4b13\source\repos\lab1cs\lab1cs\obj\Debug\lab1cs.csprojResolveAssemblyReference.cache
-c:\users\l4b13\source\repos\lab1cs\lab1cs\obj\Debug\lab1cs.csproj.CoreCompileInputs.cache
-c:\users\l4b13\source\repos\lab1cs\lab1cs\obj\Debug\lab1cs.exe
-c:\users\l4b13\source\repos\lab1cs\lab1cs\obj\Debug\lab1cs.pdb

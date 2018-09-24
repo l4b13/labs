@@ -78,6 +78,7 @@ namespace cs_lab1
             TaskList.Add(new Tasks() { Title = title, Description = description, Deadline = date, Tag = tags });
         } 
 
+        //public IEnumerable<Task> Search(params string[] tags)
         public void SearchTasks()
         {
             string filter;
@@ -108,47 +109,10 @@ namespace cs_lab1
 
         public void LastTasks()
         {
-            int taskin, arrayin;
-            taskin = 0;
-            arrayin = 0;
-            int[] valuear = new int[100];
-            int[] indexar = new int[100];
-
             Menu.LastTasks();
 
-            foreach (Tasks tsk in TaskList)
-            {
-                int currenttime, tasktime;
-                currenttime = DateTime.Now.Year * 10000 + DateTime.Now.Month * 100 + DateTime.Now.Day;
-                tasktime = tsk.Deadline.Year * 10000 + tsk.Deadline.Month * 100 + tsk.Deadline.Day;
-                if (tasktime >= currenttime)
-                {
-                    valuear[arrayin] = tasktime;
-                    indexar[arrayin] = taskin;
-                    arrayin++;
-                }
-                taskin++;
-            }
-            for (int i = 0; i < arrayin - 1; i++)
-            {
-                for (int j = i + 1; j < arrayin; j++)
-                {
-                    if (valuear[i] > valuear[j])
-                    {
-                        int storage = valuear[i];
-                        valuear[i] = valuear[j];
-                        valuear[j] = storage;
-                        storage = indexar[i];
-                        indexar[i] = indexar[j];
-                        indexar[j] = storage;
-                    }
-                }
-            }
-            for (int i = 0; i < arrayin; i++)
-            {
-                int j = indexar[i];
+            TaskList.Where(t => t.Deadline >= DateTime.Now).OrderBy(t => t.Deadline);
                 Menu.OutputTask(TaskList[j].Title, TaskList[j].Description, TaskList[j].Deadline, TaskList[j].Tag);
-            }
             Menu.Wait();
         }
 
@@ -171,44 +135,49 @@ namespace cs_lab1
             TaskList.TrimExcess();
             Menu.LoadTaskList();
             path = Menu.InputString();
-            using (StreamReader sr = new StreamReader(path, Encoding.Default))
-            {
-                string line;
-                int i = 0;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (i > 0)
+            try {
+                using (StreamReader sr = new StreamReader(path, Encoding.Default))
                     {
-                        List<string> lTags = new List<string>();
-                        DateTime lDate;
-
-                        int tz = line.IndexOf(";");
-                        string lTitle = line.Substring(0, tz);
-                        line = line.Remove(0, tz + 1);
-
-                        tz = line.IndexOf(";");
-                        string lDesc = line.Substring(0, tz);
-                        line = line.Remove(0, tz + 1);
-
-                        tz = line.IndexOf(";");
-                        string lDead = line.Substring(0, tz);
-                        DateTime.TryParse(lDead, out lDate);
-                        line = line.Remove(0, tz + 1);
-
-                        if (line[line.Length - 1] != ';')
+                    string line;
+                    int i = 0;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (i > 0)
                         {
-                            line = line + ';';
-                        }
-                        while (line.Length > 0)
-                        {
-                            tz = line.IndexOf(";");
-                            lTags.Add(line.Substring(0, tz));
+                            List<string> lTags = new List<string>();
+                            DateTime lDate;
+
+                            int tz = line.IndexOf(";");
+                            string lTitle = line.Substring(0, tz);
                             line = line.Remove(0, tz + 1);
+
+                            tz = line.IndexOf(";");
+                            string lDesc = line.Substring(0, tz);
+                            line = line.Remove(0, tz + 1);
+
+                            tz = line.IndexOf(";");
+                            string lDead = line.Substring(0, tz);
+                            DateTime.TryParse(lDead, out lDate);
+                            line = line.Remove(0, tz + 1);
+
+                            if (line[line.Length - 1] != ';')
+                            {
+                                line = line + ';';
+                            }
+                            while (line.Length > 0)
+                            {
+                                tz = line.IndexOf(";");
+                                lTags.Add(line.Substring(0, tz));
+                                line = line.Remove(0, tz + 1);
+                            }
+                            TaskList.Add(new Tasks() { Title = lTitle, Description = lDesc, Deadline = lDate, Tag = lTags });
                         }
-                        TaskList.Add(new Tasks() { Title = lTitle, Description = lDesc, Deadline = lDate, Tag = lTags });
+                        i++;
                     }
-                    i++;
                 }
+            } catch
+            {
+                Menu.IncorrectValue();
             }
         }
 

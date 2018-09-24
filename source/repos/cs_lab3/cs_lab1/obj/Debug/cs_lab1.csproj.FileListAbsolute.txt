@@ -12,3 +12,10 @@ C:\Users\l4b13\source\repos\cs_lab2\cs_lab1\obj\Debug\cs_lab1.pdb
 C:\Users\l4b13\source\repos\cs_lab2\cs_lab1\bin\Debug\cs_lab1.exe.config
 C:\Users\l4b13\source\repos\cs_lab2\cs_lab1\bin\Debug\cs_lab1.exe
 C:\Users\l4b13\source\repos\cs_lab2\cs_lab1\bin\Debug\cs_lab1.pdb
+C:\Users\Владислав\labs\source\repos\cs_lab3\cs_lab1\bin\Debug\cs_lab1.exe.config
+C:\Users\Владислав\labs\source\repos\cs_lab3\cs_lab1\bin\Debug\cs_lab1.exe
+C:\Users\Владислав\labs\source\repos\cs_lab3\cs_lab1\bin\Debug\cs_lab1.pdb
+C:\Users\Владислав\labs\source\repos\cs_lab3\cs_lab1\obj\Debug\cs_lab1.csprojAssemblyReference.cache
+C:\Users\Владислав\labs\source\repos\cs_lab3\cs_lab1\obj\Debug\cs_lab1.csproj.CoreCompileInputs.cache
+C:\Users\Владислав\labs\source\repos\cs_lab3\cs_lab1\obj\Debug\cs_lab1.exe
+C:\Users\Владислав\labs\source\repos\cs_lab3\cs_lab1\obj\Debug\cs_lab1.pdb

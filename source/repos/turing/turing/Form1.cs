@@ -11,34 +11,38 @@ using System.Windows.Forms;
 
 namespace turing
 {
-
     public partial class Form1 : Form
     {
-        private string lenta0 = "";
-        private string[] tBox = new string [12];
-        private bool status = false;
+        public string[] TBox = new string[12];
+        public bool status = false;
+        public string p0line;
+        public int step = 1;
+        public int position = 1;
 
         public bool CheckTable()
         {
             int count = 0;
             for (int i=0; i<12; i++)
             {
-                string s = tBox[i];
-                if (s[0] == 'q' && s.Length == 4)
+                if (TBox[i] != null)
                 {
-                    if (s[1] == '0' || s[1] == '1' || s[1] == '2' || s[1] == '3')
+                    string s = TBox[i];
+                    if (s[0] == 'q' && s.Length == 4)
                     {
-                        if (s[2] == '0' || s[2] == '1' || s[2] == '2')
+                        if (s[1] == '0' || s[1] == '1' || s[1] == '2' || s[1] == '3')
                         {
-                            if (s[3] == 'L' || s[3] == 'C' || s[3] == 'R')
+                            if (s[2] == '0' || s[2] == '1' || s[2] == '2')
                             {
-                                count++;
+                                if (s[3] == 'L' || s[3] == 'C' || s[3] == 'R')
+                                {
+                                    count++;
+                                }
                             }
                         }
                     }
                 }
             }
-            if (count != 12)
+            if (count < 12)
             {
                 MessageBox.Show("Error: wrong input! Please, try again.");
                 return false;
@@ -65,67 +69,67 @@ namespace turing
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            tBox[0] = textBox1.Text;
+            TBox[0] = textBox1.Text;
         } //tb1
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            tBox[1] = textBox2.Text;
+            TBox[1] = textBox2.Text;
         } //tb2
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            tBox[2] = textBox3.Text;
+            TBox[2] = textBox3.Text;
         } //tb3
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            tBox[3] = textBox4.Text;
+            TBox[3] = textBox4.Text;
         } //tb4
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            tBox[4] = textBox5.Text;
+            TBox[4] = textBox5.Text;
         } //tb5
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
-            tBox[5] = textBox6.Text;
+            TBox[5] = textBox6.Text;
         } //tb6
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-            tBox[6] = textBox7.Text;
+            TBox[6] = textBox7.Text;
         } //tb7
 
         private void textBox8_TextChanged(object sender, EventArgs e)
         {
-            tBox[7] = textBox8.Text;
+            TBox[7] = textBox8.Text;
         } //tb8
 
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
-            tBox[8] = textBox9.Text;
+            TBox[8] = textBox9.Text;
         } //tb9
 
         private void textBox10_TextChanged(object sender, EventArgs e)
         {
-            tBox[9] = textBox10.Text;
+            TBox[9] = textBox10.Text;
         } //tb10
 
         private void textBox11_TextChanged(object sender, EventArgs e)
         {
-            tBox[10] = textBox11.Text;
+            TBox[10] = textBox11.Text;
         } //tb11
 
         private void textBox12_TextChanged(object sender, EventArgs e)
         {
-            tBox[11] = textBox12.Text;
+            TBox[11] = textBox12.Text;
         } //tb12
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(tBox[0]);
+            MessageBox.Show(TBox[0]);
             if (CheckTable())
             {
 
@@ -134,10 +138,16 @@ namespace turing
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("2");
             if (CheckTable())
             {
-
+                p0line = textBox13.Text;
+                p0line.Remove(1, 1);
+                p0line.Remove(p0line.Length-2, 1);
+                while (position > 0 || position < p0line.Length)
+                {
+                    break;
+                }
+                MessageBox.Show(p0line);
             }
         } //full
 
@@ -239,7 +249,7 @@ namespace turing
 
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
-
+            textBox14.Text = textBox13.Text;
         }
 
         private void textBox14_TextChanged(object sender, EventArgs e)
