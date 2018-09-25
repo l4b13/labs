@@ -31,7 +31,10 @@ namespace cs_lab3_1
                             TList.TrimExcess();
                             MMenu.printpath();
                             path = MMenu.GetString();
-                            MMenu.Option1(TList, path);
+                            MMenu.Option2(TList, path);
+                        } else if (MMenu.Choice == "1")
+                        {
+                            MMenu.Option1();
                         }
                         do
                         {

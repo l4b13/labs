@@ -15,8 +15,9 @@ namespace cs_lab3_1
         public string GetString() { return Console.ReadLine(); }
         public virtual void Output(Task t) { }
         public virtual void Option1(string str) { }
-        public virtual void Option1(List<Task> t, string path) { }
+        public virtual void Option1() { }
         public virtual void Option2() { }
+        public virtual void Option2(List<Task> t, string path) { }
         public virtual void Option3() { }
         public virtual void Option3(List<Task> t, string path) { }
         public void Option4() { status = false; }
@@ -36,14 +37,14 @@ namespace cs_lab3_1
             Console.WriteLine("\t3.Save to-do-list");
             Console.WriteLine("\t4.Exit");
             Console.WriteLine();
-        } //intro
+        }
 
-        public override void Option2()
+        public override void Option1()
         {
             Console.WriteLine("New to-do-list created.");
         }
 
-        public override void Option1(List<Task> t, string path)
+        public override void Option2(List<Task> t, string path)
         {
             try
             {
@@ -97,37 +98,35 @@ namespace cs_lab3_1
         {
             printpath();
             path = GetString();
-            /*if (File.Exists(path)) { File.Delete(path); }
-            File.Create(path).Close();*/
-            FileInfo f = new FileInfo(path);
-            f.Delete();
-            f.Create().Close();
-            f = null;
-            System.Threading.Thread.Sleep(1000);
+            FileStream f = new FileStream(path, FileMode.Create);
             try
             {
-                using (StreamWriter sw = new StreamWriter(path, true, Encoding.Default))
+                using (StreamWriter sw = new StreamWriter(f))
                 {
-                    sw.Close();
                     sw.WriteLine("Title;Description;Deadline;Tags");
+                    sw.Close();
+                    f.Close();
+                    f = null;
                 }
+                FileStream f1 = new FileStream(path, FileMode.Append);
                 foreach (Task tsk in t)
-                {
-                    using (StreamWriter sw = new StreamWriter(path, true, Encoding.Default))
+                {                    
+                    using (StreamWriter sw = new StreamWriter(f1))
                     {
-                        sw.Close();
                         sw.Write("{0};{1};{2}/{3}/{4};", tsk.Title, tsk.Description, tsk.Deadline.Day, tsk.Deadline.Month, tsk.Deadline.Year);
                         foreach (string tg in tsk.Tag)
                         {
                             sw.Write("{0};", tg);
                         }
                         sw.WriteLine();
-                    }
+                        sw.Close();
+                    }                    
                 }
+                f1.Close();
                 Console.WriteLine("saved");
-            } catch
+            } catch (Exception ex)
             {
-                Console.WriteLine("not saved");
+                Console.WriteLine("not saved\n{0}", ex);
             }
         }
     }
@@ -156,7 +155,7 @@ namespace cs_lab3_1
             Console.WriteLine("\t3.Last tasks");
             Console.WriteLine("\t4.Back to options");
             Console.WriteLine();
-        } //intro
+        }
 
         public override void Option1(string str)
         {

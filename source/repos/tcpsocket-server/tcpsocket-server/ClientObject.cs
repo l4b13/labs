@@ -37,6 +37,12 @@ namespace tcpsocket_server
                     string message = builder.ToString();
 
                     Console.WriteLine(message);
+
+
+
+
+
+
                     // отправляем обратно сообщение в верхнем регистре
                     message = message.Substring(message.IndexOf(':') + 1).Trim().ToUpper();
                     data = Encoding.Unicode.GetBytes(message);
